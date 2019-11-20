@@ -218,6 +218,7 @@
             this.button15.TabIndex = 18;
             this.button15.Text = "X²";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button16
             // 
@@ -321,6 +322,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.textBox1.Location = new System.Drawing.Point(0, 23);
             this.textBox1.Multiline = true;
@@ -335,6 +337,7 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.MenuBar;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(12, 12);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";

@@ -17,7 +17,6 @@ namespace Calculator
         string operand2 = string.Empty;
         char opperation;
         double result;
-        double emptynum;
 
 
         public Calulator()
@@ -32,20 +31,37 @@ namespace Calculator
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.textBox3.Text = "";
             this.textBox1.Text = "";
-            input += ".";
+            if (String.IsNullOrEmpty(input))
+            {
+                input += "0.";
+            }
+            else
+            {
+                input += ".";
+            }
             this.textBox1.Text = input;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.textBox3.Text = "";
+            this.textBox1.Text = "";
+            if (input.Contains('-'))
+            {
+                input = input.Remove(0, 1);
+            }
+            else
+            {
+                input = $"-{input}";
+            }
+            this.textBox1.Text = input;
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -78,11 +94,24 @@ namespace Calculator
             this.input = string.Empty;
             this.operand1 = string.Empty;
             this.operand2 = string.Empty;
-            this.result = emptynum;
+            this.result = 0;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
+            this.textBox1.Text = "";
+            result = Math.Sqrt(Convert.ToInt32(input));
+            this.textBox1.Text = $"{result}";
+            this.textBox3.Text = $"√{input}";
+            if (result == NaN)
+            {
+                input = string.Empty;
+            }
+            else
+            {
+                this.input = Convert.ToString(result);
+            }
 
         }
 
@@ -212,60 +241,32 @@ namespace Calculator
             double.TryParse(operand1, out num1);
             double.TryParse(operand2, out num2);
             string showing = string.Empty;
-            if (result == emptynum)
+
+            if (opperation == '+')
             {
-                if (opperation == '+')
-                {
-                    result = num1 + num2;
-                    showing = $"{num1}+{num2}=";
-                }
-                else if (opperation == '-')
-                {
-                    result = num1 - num2;
-                    showing = $"{num1}-{num2}=";
-                }
-                else if (opperation == '*')
-                {
-                    result = num1 * num2;
-                    showing = $"{num1}*{num2}=";
-                }
-                else if (opperation == '/')
-                {
-                    result = num1 / num2;
-                    showing = $"{num1}/{num2}=";
-                }
-                else
-                {
-                    result = 0.0;
-                }
+                result = num1 + num2;
+                showing = $"{num1}+{num2}=";
+            }
+            else if (opperation == '-')
+            {
+                result = num1 - num2;
+                showing = $"{num1}-{num2}=";
+            }
+            else if (opperation == '*')
+            {
+                result = num1 * num2;
+                showing = $"{num1}*{num2}=";
+            }
+            else if (opperation == '/')
+            {
+                result = num1 / num2;
+                showing = $"{num1}/{num2}=";
             }
             else
             {
-                if (opperation == '+')
-                {
-                    result = result + num2;
-                    showing = $"{result}+{num2}=";
-                }
-                else if (opperation == '-')
-                {
-                    result = result - num2;
-                    showing = $"{result}-{num2}=";
-                }
-                else if (opperation == '*')
-                {
-                    result = result * num2;
-                    showing = $"{result}*{num2}=";
-                }
-                else if (opperation == '/')
-                {
-                    result = result / num2;
-                    showing = $"{result}/{num2}=";
-                }
-                else
-                {
-                    result = 0.0;
-                }
+                result = 0.0;
             }
+
 
             this.textBox1.Text = "";
             this.textBox1.Text = Convert.ToString(result);
@@ -273,9 +274,22 @@ namespace Calculator
             this.textBox3.Text = "";
             this.textBox3.Text = showing;
 
-            operand1 = Convert.ToString(result);
-            operand2 = string.Empty;
+            this.operand1 = String.Empty;
+            this.operand2 = string.Empty;
+            this.input = Convert.ToString(result);
             
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            this.textBox1.Text = "";
+            this.textBox3.Text = "";
+            this.result = Convert.ToInt32(input) * Convert.ToInt32(input);
+            
+            this.textBox1.Text = Convert.ToString(result);
+
+
+            input = Convert.ToString(result);
         }
     }
 }
