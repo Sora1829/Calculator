@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    partial class Calulator
+    partial class Calculator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
+            this.button1 = new NoSelectButton();
+            this.button2 = new NoSelectButton();
+            this.button3 = new NoSelectButton();
+            this.button4 = new NoSelectButton();
+            this.button5 = new NoSelectButton();
+            this.button6 = new NoSelectButton();
+            this.button7 = new NoSelectButton();
+            this.button8 = new NoSelectButton();
+            this.button9 = new NoSelectButton();
+            this.button10 = new NoSelectButton();
+            this.button11 = new NoSelectButton();
+            this.button12 = new NoSelectButton();
+            this.button13 = new NoSelectButton();
+            this.button14 = new NoSelectButton();
+            this.button15 = new NoSelectButton();
+            this.button16 = new NoSelectButton();
+            this.button17 = new NoSelectButton();
+            this.button18 = new NoSelectButton();
+            this.button19 = new NoSelectButton();
+            this.button20 = new NoSelectButton();
+            this.button21 = new NoSelectButton();
+            this.button22 = new NoSelectButton();
+            this.button23 = new NoSelectButton();
+            this.button24 = new NoSelectButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -273,6 +273,7 @@
             this.button20.TabIndex = 23;
             this.button20.Text = "¹/x";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button21
             // 
@@ -378,38 +379,41 @@
             this.Controls.Add(this.textBox3);
             this.Name = "Calulator";
             this.Text = "Calculator";
+            //this.KeyPreview = true;
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_Keypress);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+            
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button24;
+        private NoSelectButton button1;
+        private NoSelectButton button2;
+        private NoSelectButton button3;
+        private NoSelectButton button4;
+        private NoSelectButton button5;
+        private NoSelectButton button6;
+        private NoSelectButton button7;
+        private NoSelectButton button8;
+        private NoSelectButton button9;
+        private NoSelectButton button10;
+        private NoSelectButton button11;
+        private NoSelectButton button12;
+        private NoSelectButton button13;
+        private NoSelectButton button14;
+        private NoSelectButton button15;
+        private NoSelectButton button16;
+        private NoSelectButton button17;
+        private NoSelectButton button18;
+        private NoSelectButton button19;
+        private NoSelectButton button20;
+        private NoSelectButton button21;
+        private NoSelectButton button22;
+        private NoSelectButton button23;
+        private NoSelectButton button24;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
     }
