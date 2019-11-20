@@ -16,7 +16,8 @@ namespace Calculator
         string operand1 = string.Empty;
         string operand2 = string.Empty;
         char opperation;
-        double result = 0.0;
+        double result;
+        double emptynum;
 
 
         public Calulator()
@@ -36,6 +37,7 @@ namespace Calculator
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += ".";
             this.textBox1.Text = input;
@@ -48,6 +50,7 @@ namespace Calculator
 
         private void button12_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "8";
             this.textBox1.Text = input;
@@ -61,6 +64,7 @@ namespace Calculator
             }
             else
             {
+                this.textBox3.Text = "";
                 this.textBox1.Text = "";
                 input = input.Remove(input.Length-1);
                 this.textBox1.Text = input;
@@ -69,10 +73,12 @@ namespace Calculator
 
         private void button11_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "0";
             this.input = string.Empty;
             this.operand1 = string.Empty;
             this.operand2 = string.Empty;
+            this.result = emptynum;
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -87,6 +93,7 @@ namespace Calculator
 
         private void button14_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "2";
             this.textBox1.Text = input;
@@ -94,6 +101,7 @@ namespace Calculator
 
         private void button5_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "1";
             this.textBox1.Text = input;
@@ -101,6 +109,7 @@ namespace Calculator
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "0";
             this.textBox1.Text = input;
@@ -108,6 +117,7 @@ namespace Calculator
 
         private void button19_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "3";
             this.textBox1.Text = input;
@@ -115,6 +125,7 @@ namespace Calculator
 
         private void button6_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "4";
             this.textBox1.Text = input;
@@ -122,6 +133,7 @@ namespace Calculator
 
         private void button13_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "5";
             this.textBox1.Text = input;
@@ -129,6 +141,7 @@ namespace Calculator
 
         private void button18_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "6";
             this.textBox1.Text = input;
@@ -136,6 +149,7 @@ namespace Calculator
 
         private void button7_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "7";
             this.textBox1.Text = input;
@@ -143,6 +157,7 @@ namespace Calculator
 
         private void button17_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             this.textBox1.Text = "";
             input += "9";
             this.textBox1.Text = input;
@@ -150,6 +165,7 @@ namespace Calculator
 
         private void button24_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             operand1 = input;
             opperation = '+';
             input = string.Empty;
@@ -157,6 +173,7 @@ namespace Calculator
 
         private void button23_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             operand1 = input;
             opperation = '-';
             input = string.Empty;
@@ -164,6 +181,7 @@ namespace Calculator
 
         private void button22_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             operand1 = input;
             opperation = '*';
             input = string.Empty;
@@ -171,6 +189,7 @@ namespace Calculator
 
         private void button21_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
             operand1 = input;
             opperation = '/';
             input = string.Empty;
@@ -178,6 +197,11 @@ namespace Calculator
 
         private void button8_Click(object sender, EventArgs e)
         {
+            this.textBox3.Text = "";
+            this.textBox1.Text = "";
+            this.textBox1.Text = "0";
+            input = string.Empty;
+
 
         }
 
@@ -187,10 +211,71 @@ namespace Calculator
             double num1, num2;
             double.TryParse(operand1, out num1);
             double.TryParse(operand2, out num2);
-            if (opperation == '+')
+            string showing = string.Empty;
+            if (result == emptynum)
             {
-
+                if (opperation == '+')
+                {
+                    result = num1 + num2;
+                    showing = $"{num1}+{num2}=";
+                }
+                else if (opperation == '-')
+                {
+                    result = num1 - num2;
+                    showing = $"{num1}-{num2}=";
+                }
+                else if (opperation == '*')
+                {
+                    result = num1 * num2;
+                    showing = $"{num1}*{num2}=";
+                }
+                else if (opperation == '/')
+                {
+                    result = num1 / num2;
+                    showing = $"{num1}/{num2}=";
+                }
+                else
+                {
+                    result = 0.0;
+                }
             }
+            else
+            {
+                if (opperation == '+')
+                {
+                    result = result + num2;
+                    showing = $"{result}+{num2}=";
+                }
+                else if (opperation == '-')
+                {
+                    result = result - num2;
+                    showing = $"{result}-{num2}=";
+                }
+                else if (opperation == '*')
+                {
+                    result = result * num2;
+                    showing = $"{result}*{num2}=";
+                }
+                else if (opperation == '/')
+                {
+                    result = result / num2;
+                    showing = $"{result}/{num2}=";
+                }
+                else
+                {
+                    result = 0.0;
+                }
+            }
+
+            this.textBox1.Text = "";
+            this.textBox1.Text = Convert.ToString(result);
+
+            this.textBox3.Text = "";
+            this.textBox3.Text = showing;
+
+            operand1 = Convert.ToString(result);
+            operand2 = string.Empty;
+            
         }
     }
 }
